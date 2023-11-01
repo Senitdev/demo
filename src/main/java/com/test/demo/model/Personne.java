@@ -1,14 +1,15 @@
-package com.test.demo;
-import jakarta.persistence.*;
+package com.test.demo.model;
+import org.springframework.data.annotation.Id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 @Entity
 public class Personne {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-     Long id;
-     String prenom;
-     String nom;
-    String adresse;
-     String tel;
+@Id
+@GeneratedValue
+    private Long id;
+    private String prenom;
+    private String nom;
+    private String adresse;
     public Long getId() {
         return id;
     }
@@ -21,12 +22,6 @@ public class Personne {
     public String getAdresse() {
         return adresse;
     }
-    public String getTel() {
-        return tel;
-    }
-    public void setId(Long id) {
-        this.id = id;
-    }
     public void setPrenom(String prenom) {
         this.prenom = prenom;
     }
@@ -36,16 +31,13 @@ public class Personne {
     public void setAdresse(String adresse) {
         this.adresse = adresse;
     }
-    public void setTel(String tel) {
-        this.tel = tel;
-    }
-    public Personne(String prenom, String nom, String adresse, String tel) {
+    public Personne(String prenom, String nom, String adresse) {
         this.prenom = prenom;
         this.nom = nom;
         this.adresse = adresse;
-        this.tel = tel;
     }
     public Personne() {
     }
     
+
 }

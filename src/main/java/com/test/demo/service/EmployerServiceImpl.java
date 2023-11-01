@@ -1,8 +1,6 @@
 package com.test.demo.service;
 import java.util.List;
-
 import org.springframework.stereotype.Service;
-
 import com.test.demo.model.Employer;
 import com.test.demo.repository.EmployerRepository;
 
@@ -13,14 +11,13 @@ public class EmployerServiceImpl implements EmployerService{
   private final EmployerRepository employerRepository;
     @Override
     public Employer ajouter(Employer employer) {
-      employerRepository.save(employer);
-        throw new UnsupportedOperationException("Unimplemented method 'ajouter'");
+      return employerRepository.save(employer);
     }
+
 
     @Override
     public List<Employer> lister() {
-       employerRepository.findAll();
-        throw new UnsupportedOperationException("Unimplemented method 'lister'");
+       return employerRepository.findAll();
     }
 
     @Override
@@ -38,7 +35,6 @@ public class EmployerServiceImpl implements EmployerService{
     @Override
     public void delete(Long id) {
         employerRepository.deleteById(id);
-        throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
 
 }

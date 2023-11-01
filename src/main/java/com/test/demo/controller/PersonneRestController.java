@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.test.demo.service.PersonneService;
-
+import com.test.demo.model.Personne;
 import lombok.AllArgsConstructor;
 
 @RestController

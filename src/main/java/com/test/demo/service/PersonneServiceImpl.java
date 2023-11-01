@@ -28,7 +28,7 @@ public class PersonneServiceImpl implements PersonneService {
     public Personne update(Long id, Personne pe) {
         return personneRepository.findById(id)
         .map(pers->{
-          pers.setNom(pe.getAdresse());
+          pers.setNom(pe.getNom());
           pers.setPrenom(pe.getPrenom());
           pers.setAdresse(pe.getAdresse());
           return personneRepository.save(pers);

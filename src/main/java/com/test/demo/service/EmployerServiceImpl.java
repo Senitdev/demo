@@ -1,5 +1,7 @@
 package com.test.demo.service;
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 import com.test.demo.model.Employer;
 import com.test.demo.repository.EmployerRepository;
@@ -11,6 +13,15 @@ public class EmployerServiceImpl implements EmployerService{
   private final EmployerRepository employerRepository;
     @Override
     public Employer ajouter(Employer employer) {
+      if(employer.getAdresse()==null || employer.getPrenom().isEmpty()){
+       throw(new RuntimeException("Veuillez remplir le prenom"));
+      }
+      if(employer.getNom()==null || employer.getNom().isEmpty() || employer.getNom().length()<2){
+        throw(new RuntimeException("Veuillez renseigner le nom "));
+      } 
+      if(employer.getAdresse()==null || employer.getAdresse().isEmpty() || employer.getAdresse().isBlank()){
+        throw(new RuntimeException("L ardresse est obligatoire"));
+      }
       return employerRepository.save(employer);
     }
 
@@ -37,4 +48,13 @@ public class EmployerServiceImpl implements EmployerService{
         employerRepository.deleteById(id);
     }
 
-}
+
+    @Override
+    public Optional<Employer> getEmployerById(Long id) {
+      if(employerRepository.findById(id).isEmpty()){
+          throw(new RuntimeException("Employer non trouver id "));
+      }else{
+        return employerRepository.findById(id);
+      }
+    }
+     }

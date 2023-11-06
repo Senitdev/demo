@@ -1,6 +1,7 @@
 package com.test.demo.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,5 +39,8 @@ public class EmployerRestController {
     public void delete(@PathVariable Long id) {
     employerService.delete(id);
     }
-
-}
+    @GetMapping("/recherche/{id}") 
+    public Optional<Employer> getEmployerById(@PathVariable Long id) {
+       return  employerService.getEmployerById(id);
+      }
+    }

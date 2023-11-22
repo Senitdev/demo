@@ -12,14 +12,14 @@ import com.projet.demo.repository.StockRepository;
 public class CommandeFournisseurImpl implements CommandeService {
   private CommandeFournisseurRepository commandeFournisseurRepository;
    private StockRepository stockRepository;
-  public CommandeFournisseurImpl(CommandeFournisseurRepository commandeFournisseurRepository){
+  public CommandeFournisseurImpl(CommandeFournisseurRepository commandeFournisseurRepository,StockRepository stockRepository){
      this.commandeFournisseurRepository=commandeFournisseurRepository;
+     this.stockRepository=stockRepository;
   }
     @Override
     public CommandeFourns ajouter(CommandeFourns commandeFourns) {
-       
         Stock stock=new Stock();
-        stock.setIdArticle(commandeFourns.getId());
+        stock.setIdArticle(2);
         stock.setQteStock(commandeFourns.getQte());
         stockRepository.save(stock);
      return commandeFournisseurRepository.save(commandeFourns);

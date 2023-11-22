@@ -28,6 +28,4 @@ public class CommandeFourns  implements Serializable {
      Fournisseur fournisseur;
      @OneToOne
      private Article article;
-
-    
 }
